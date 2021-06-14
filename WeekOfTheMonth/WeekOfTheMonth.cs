@@ -11,7 +11,7 @@ namespace WeekOfTheMonth
     {
         public int GetWeek(string date)
         {
-            var isValidDate = DateTime.TryParse(date, out var dateObject);
+            var isValidDate = DateTime.TryParseExact(date, new string[] {"dd/MM/yyyy", "dd/M/yyyy"}, new CultureInfo("en-US"), DateTimeStyles.None, out DateTime dateObject);
             if(!isValidDate)
                 return 0;
 
