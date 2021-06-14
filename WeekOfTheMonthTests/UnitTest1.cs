@@ -34,8 +34,24 @@ namespace WeekOfTheMonthTests
         public void NonExistentDate()
         {
             var WeekMonth = new WeekOfTheMonth.WeekOfTheMonth();
-            var week = WeekMonth.GetWeek("29/06/2021");
+            var week = WeekMonth.GetWeek("29/02/2021");
             Assert.AreEqual(week, 0);
+        }
+
+        [TestMethod]
+        public void SingleDigitDay()
+        {
+            var WeekMonth = new WeekOfTheMonth.WeekOfTheMonth();
+            var week = WeekMonth.GetWeek("1/06/2021");
+            Assert.AreEqual(week, 1);
+        }
+
+        [TestMethod]
+        public void SignleDigitDayAndMonth()
+        {
+            var WeekMonth = new WeekOfTheMonth.WeekOfTheMonth();
+            var week = WeekMonth.GetWeek("1/6/2021");
+            Assert.AreEqual(week, 1);
         }
     }
 }
